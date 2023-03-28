@@ -1,3 +1,4 @@
+import Popper from 'popper.js';
 import './bootstrap';
 
 import Alpine from 'alpinejs';
