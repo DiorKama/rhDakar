@@ -43,12 +43,12 @@
          @else
            <a href="{{ route('login') }}" class='btn btn-outline-infos rounded-pill'>
            <i class='fa fa-user me-1'></i>
-           Connexion
+           {{__('home.login')}}
            </a>
            @if (Route::has('register'))
            <a href="{{ route('register') }}" class='btn btn-outline-infos rounded-pill ms-2'>
            <i class='fa fa-user-plus me-1'></i>
-           Inscription
+           {{__('home.register')}}
            </a>
            @endif
            @endauth

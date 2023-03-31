@@ -7,6 +7,7 @@
     <x-monheader>
 
     </x-monheader>
+
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('update_user.update') }}
@@ -25,22 +26,28 @@
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="firstName" :value="__('update_user.firstName')" />
-            <x-text-input id="firstName" name="firstName" type="text" class="mt-1 block w-full" :value="old('firstName', $user->firstName)" required autofocus autocomplete="firstName" />
-            <x-input-error class="mt-2" :messages="$errors->get('firstName')" />
+    <div class="row">
+        <div class="col-6 ">
+            <label class="form-label" for="form3Example1n">{{ __('update_user.firstName') }}</label>
+            <input  id="firstName" class="form-control" type="text" name="firstName" required autofocus autocomplete="firstName" />
+            <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
         </div>
-
-        <div>
-            <x-input-label for="lastName" :value="__('update_user.lastName')" />
-            <x-text-input id="lastName" name="lastName" type="text" class="mt-1 block w-full" :value="old('lastName', $user->lastName)" required autofocus autocomplete="lastName" />
-            <x-input-error class="mt-2" :messages="$errors->get('lastName')" />
+    </div>
+    <div class="row">
+        <div class="col-6 ">
+            <label class="form-label" for="form3Example1n">{{ __('update_user.lastName') }}</label>
+            <input  id="lastName" class="form-control" type="text" name="lastName" required autofocus autocomplete="lastName" />
+            <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
         </div>
-
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+    </div>
+    
+    <div>
+        <div class="col-6">
+        <label class="form-label" for="form3Example1n">{{ __('Email') }}</label>
+        <input  id="email" class="form-control" type="email" name="email" required autofocus autocomplete="email" />
+        <x-input-error class="mt-2" :messages="$errors->get('email')" />
+        </div>
+    </div>
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
@@ -62,7 +69,8 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('update_user.save') }}</x-primary-button>
+            <!-- <x-primary-button>{{ __('update_user.save') }}</x-primary-button> -->
+             <button class=" btn btn-warning text-white">{{ __('update_user.save') }}</button>
 
             @if (session('status') === 'profile-updated')
                 <p
