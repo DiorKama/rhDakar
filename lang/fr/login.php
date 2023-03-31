@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'remember' => 'Souvenez-vous de moi',
-    'forgot' => 'Vous avez oublié votre mot de passe ?',
+    'remember' => 'Souvenir de moi',
+    'forgot' => 'Mot de passe oublié ?',
     'login' => 'Connexion',
 ]
 ?>

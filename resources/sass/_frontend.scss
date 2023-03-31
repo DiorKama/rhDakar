@@ -1,0 +1,25 @@
+body {
+    padding-top: 60px;
+}
+
+a {
+    text-decoration: none;
+}
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+.form-right i {
+    font-size: 100px;
+}
+
+.register-page{
+    width: 100%;
+    height: 150vh;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}

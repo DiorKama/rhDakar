@@ -6,10 +6,10 @@ return[
     'lastName' => 'Nom',
     'email' => 'Email',
     'password' => 'Password',
-    'confirm' => 'Confirmez votre mot de passe',
+    'confirm' => 'Confirmez le mot de passe',
     'phone' => 'Numero de téléphone',
     'position' => 'Profession',
-    'validation' => 'Vous êtes déjà inscrit ?',
+    'validation' => 'Vous avez déjà un compte?',
     'register' => 'Enregistrer',
 ]
 ?>
