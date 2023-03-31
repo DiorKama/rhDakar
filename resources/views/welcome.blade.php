@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />        
     </head>
-<body class="container">
+<body class="">
 <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
