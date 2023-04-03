@@ -29,14 +29,14 @@
     <div class="row">
         <div class="col-6 ">
             <label class="form-label" for="form3Example1n">{{ __('update_user.firstName') }}</label>
-            <input  id="firstName" class="form-control" type="text" name="firstName" required autofocus autocomplete="firstName" />
+            <input  id="firstName" class="form-control" type="text" name="firstName" required autofocus autocomplete="firstName" value="{{ $user->firstName }}" />
             <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
         </div>
     </div>
     <div class="row">
         <div class="col-6 ">
             <label class="form-label" for="form3Example1n">{{ __('update_user.lastName') }}</label>
-            <input  id="lastName" class="form-control" type="text" name="lastName" required autofocus autocomplete="lastName" />
+            <input  id="lastName" class="form-control" type="text" name="lastName" required autofocus autocomplete="lastName" value="{{ $user->lastName }}" />
             <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
         </div>
     </div>
@@ -44,7 +44,7 @@
     <div>
         <div class="col-6">
         <label class="form-label" for="form3Example1n">{{ __('Email') }}</label>
-        <input  id="email" class="form-control" type="email" name="email" required autofocus autocomplete="email" />
+        <input  id="email" class="form-control" type="email" name="email"  required autofocus autocomplete="email" value="{{ $user->email }}" />
         <x-input-error class="mt-2" :messages="$errors->get('email')" />
         </div>
     </div>
