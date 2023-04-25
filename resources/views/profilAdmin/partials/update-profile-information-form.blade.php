@@ -1,39 +1,32 @@
-<section>
-@if (session('status'))
-        <div class="alert alert-success p-3">
-            {{ session('status') }}
-        </div>
+<form method="post" action="{{ route('profile.admin.update') }}" class="mt-6 space-y-6">
+    @csrf
+    @method('patch')
+    <!-- /.card-header -->
+    <div class="card-body">
+    @if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show p-3" role="alert">
+        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ session('status') }}
+    </div>
     @endif
-<x-monheader>
-
-</x-monheader>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('update_user.update') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __("update_user.text1") }}
         </p>
-    </header>
-
-    <form method="post" action="{{ route('profile.admin.update') }}" class="mt-6 space-y-6">
-        @csrf
-        @method('patch')
-
-        <div>
+        <div class="form-group">
             <x-input-label for="firstName" :value="__('update_user.firstName')" />
             <x-text-input id="firstName" name="firstName" type="text" class="mt-1 block w-full" :value="old('firstName', $user->firstName)" required autofocus autocomplete="firstName" />
             <x-input-error class="mt-2" :messages="$errors->get('firstName')" />
         </div>
 
-        <div>
+        <div class="form-group">
             <x-input-label for="lastName" :value="__('update_user.lastName')" />
             <x-text-input id="lastName" name="lastName" type="text" class="mt-1 block w-full" :value="old('lastName', $user->lastName)" required autofocus autocomplete="lastName" />
             <x-input-error class="mt-2" :messages="$errors->get('lastName')" />
         </div>
 
-        <div>
+        <div class="form-group">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -56,21 +49,24 @@
                 </div>
             @endif
         </div>
+    </div>
+    <!-- /.card-body -->
+    <!-- .card-footer -->
+    <div class="card-footer">
+        <x-primary-button>{{ __('update_user.save') }}</x-primary-button>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('update_user.save') }}</x-primary-button>
-
-            @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('update_user.saved') }}</p>
-            @endif
-        </div>
-    </form>
+        @if (session('status') === 'profile-updated')
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600 dark:text-gray-400"
+            >{{ __('update_user.saved') }}</p>
+        @endif
+    </div>
+    <!-- /.card-footer -->
+</form>  
 <x-monbody>
     
 </x-monbody>
@@ -79,4 +75,4 @@
             toastr.success("{{ Session::get('status')}}");
         </script>
         @endif
-</section>
+

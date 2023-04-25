@@ -1,29 +1,26 @@
-<x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('navigation.profile') }}
-        </h2>
-    </x-slot>
+<x-master-layout>
+<div class="card card-primary mt-5 py-2">
+  <div class="card-header">
+    <h3 class="card-title">{{ __('update_user.update') }}</h3>
+  </div>
+    @include('profilAdmin.partials.update-profile-information-form')
+</div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profilAdmin.partials.update-profile-information-form')
-                </div>
-            </div>
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">{{ __('update_pass.update') }}</h3>
+  </div>
+  @include('profilAdmin.partials.update-password-form')
+</div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profilAdmin.partials.update-password-form')
-                </div>
-            </div>
-
-            {{--<div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profilAdmin.partials.delete-user-form')
-                </div>
-            </div>--}}
+    {{--<div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+        <div class="max-w-xl">
+            @include('profilAdmin.partials.delete-user-form')
         </div>
+    </div>--}}
+</div>
     </div>
-</x-admin-layout>
+
+    
+<!-- /.card -->
+</x-master-layout>
