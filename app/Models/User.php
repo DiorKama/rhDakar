@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Leave;
+use App\Models\Appointment;
+use Illuminate\Support\Arr;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -26,6 +29,7 @@ class User extends Authenticatable
         'phone_number',
         'position',
         'last_login',
+        'manager_id',
     ];
 
     /**
@@ -46,4 +50,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function appointments(){
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function leaves(){
+        return $this->hasMany(Leave::class);
+    }
+
+    public function manager(){
+        return $this->belongsTo(self::class, 'manager_id');
+    }
+
+    public function getFullNameAttribute()
+{
+    return Arr::get(config('employees.titles'), $this->title) . ' ' . $this->firstName . ' ' . $this->lastName;
+}
 }

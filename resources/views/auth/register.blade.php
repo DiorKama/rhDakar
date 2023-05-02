@@ -82,7 +82,7 @@
                   @endforeach
                  </select>
                  <x-input-error :messages="$errors->get('title')" class="mt-2" />
-                </div>
+                 </div>
                 </div>
                 
                 <div class="row mt-4" >
@@ -115,7 +115,7 @@
                   <div class="col-md-6 mb-4">
                     <label class="form-label" for="form3Example1m">{{ __('register.confirm') }}</label>
                       <input  id="password_confirmation" class="form-control" type="password"
-                            name="password_confirmation" required autocomplete="new-password" />  
+                        name="password_confirmation" required autocomplete="new-password" />  
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                   </div>
                   <div class="col-md-6 mb-4">

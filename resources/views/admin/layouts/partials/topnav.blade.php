@@ -35,6 +35,12 @@
         </div>
       </li>
       <!-- Messages Dropdown Menu -->
+      @guest
+      @if (Route::has('admin'))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin') }}">{{__('home.login')}}</a>
+              </li>
+          @endif
           <div class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::guard('admin')->user()->firstName }}
@@ -51,5 +57,6 @@
                   </form> 
               </div>
           </div>
+          @endguest
     </ul>
   </nav>

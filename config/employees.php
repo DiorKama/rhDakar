@@ -1,8 +1,8 @@
 <?php
 return [
     'titles' => [
-        'Mrs' => 'Madame',
-        'Miss' => 'Mlle',
-        'Mr' => 'Monsieur',
+        'mrs' => 'Mme',
+        'miss' => 'Mlle',
+        'mr' => 'M.',
     ]
 ];

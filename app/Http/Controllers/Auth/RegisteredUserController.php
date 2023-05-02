@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone_number' => ['required', 'string', 'max:255'],
             'position' => ['required', 'string', 'max:255'],
-            //'last_login' => ['required', 'string', 'max:255'],
+            'manager_id' => ['required', 'string', 'max:255'],
         ]);
 
         $user = User::create([
@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'phone_number' => $request->phone_number,
             'position' => $request->position,
-            //'last_login' => $request->lastl_ogin,
+            'manager_id' => $request->manager,
         ]);
 
         event(new Registered($user));

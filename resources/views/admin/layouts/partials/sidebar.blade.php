@@ -4,7 +4,6 @@
       <img src="{{ asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar Menu -->
@@ -24,13 +23,19 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                 Listes Employées
+                 Employées
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste Employées</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.user.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ajout Employées</p>
                 </a>
@@ -85,10 +90,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ajout Abscence</p>
                 </a>
-              </li>
-              
-              
-              
+              </li> 
             </ul>
           </li>
           <li class="nav-item">
