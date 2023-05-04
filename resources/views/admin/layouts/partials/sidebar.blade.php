@@ -12,7 +12,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
@@ -77,24 +77,48 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Liste Congés</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ajout Congés</p>
                 </a>
               </li>
             </ul>
-          </li>
+          </li> 
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                Malades
+                Type de Pointages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.appointmentType.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste Type Pointages</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.appointmentType.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajout Type pointages</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+               Pointages
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -102,7 +126,7 @@
               <li class="nav-item">
                 <a href="pages/UI/general.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajout Malades</p>
+                  <p>Liste Pointages</p>
                 </a>
               </li>
             </ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LeaveTypeController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AdminProfilController;
+use App\Http\Controllers\AppointmentTypeController;
 use App\Http\Controllers\Admin\Auth\AdminPasswordController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 
@@ -83,4 +84,12 @@ Route::get('/admin/leaveType/delete/{leaveType}', [LeaveTypeController::class, '
 Route::get('/admin/leaveType/show/{leaveType}',  [LeaveTypeController::class, 'show'])->name('admin.leaveType.show');
 
 
+//appointmentType
+Route::get('admin/appointmentType/index', [AppointmentTypeController::class, 'index'])->name('admin.appointmentType.index');
+Route::get('/admin/appointmentType/create',  [AppointmentTypeController::class, 'create'])->name('admin.appointmentType.create');
+Route::post('/admin/appointmentType/store',  [AppointmentTypeController::class, 'store'])->name('admin.appointmentType.store');
+Route::get('/admin/appointmentType/edit/{appointmentType}',  [AppointmentTypeController::class, 'edit'])->name('admin.appointmentType.edit');
+Route::put('/admin/appointmentType/update/{appointmentType}',  [AppointmentTypeController::class, 'update'])->name('admin.appointmentType.update');
+Route::get('/admin/appointmentType/delete/{appointmentType}', [AppointmentTypeController::class, 'delete'])->name('admin.appointmentType.delete');
+Route::get('/admin/appointmentType/show/{appointmentType}',  [AppointmentTypeController::class, 'show'])->name('admin.appointmentType.show');
 

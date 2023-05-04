@@ -1,21 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\LeaveType;
-use Illuminate\Http\Request;
 
-class LeaveTypeController extends Controller
+use Illuminate\Http\Request;
+use App\Models\AppointmentType;
+
+class AppointmentTypeController extends Controller
 {
     public function index(){
-        $leaveTypes = LeaveType::all();
-        return view('admin.leaveType.index',compact('leaveTypes')); 
+        $appointmentTypes = AppointmentType::all();
+        return view('admin.appointmentTypes.index',compact('appointmentTypes')); 
 
     }
 
     public function create()
     {
-        $leaveTypes = LeaveType::all();
-        return view('admin.leaveType.create',compact('leaveTypes'));
+        $appointmentTypes = AppointmentType::all();
+        return view('admin.appointmentTypes.create',compact('appointmentTypes'));
     }
     
     public function store(Request $request)
@@ -26,51 +27,51 @@ class LeaveTypeController extends Controller
             'active' => 'boolean',
         ]);
     
-        $leaveTypes = new LeaveType([
+        $appointmentTypes = new AppointmentType([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'active' => isset($validatedData['active']) && $validatedData['active'] == '1',
         ]);
         
-        $leaveTypes->save();
+        $appointmentTypes->save();
     
-        return redirect('admin/leaveType/index');
+        return redirect('admin/appointmentType/index');
     }
     
     public function edit($id)
         {
-            $leaveTypes = LeaveType::find($id);
+            $appointmentTypes = AppointmentType::find($id);
 
-            return view('admin.leaveType.edit', compact('leaveTypes'));
+            return view('admin.appointmentTypes.edit', compact('appointmentTypes'));
         }
 
  public function update(Request $request, $id)
   {
-    $leaveTypes = LeaveType::findOrFail($id);
+    $appointmentTypes = AppointmentType::findOrFail($id);
     $validatedData = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
         'active' => 'boolean',
     ]);
 
-    $leaveTypes->update([
+    $appointmentTypes->update([
         'title' => $validatedData['title'],
         'description' => $validatedData['description'],
         'active' => isset($validatedData['active']) && $validatedData['active'] == '1',
     ]);
 
-            return redirect('admin/leaveType/index');
+            return redirect('admin/appointmentType/index');
         }
 
 
-        public function delete(LeaveType $leaveType)
+        public function delete(AppointmentType $appointmentType)
         {
-            $leaveType->delete();
-            return redirect()->route('admin.leaveType.index');
+            $appointmentType->delete();
+            return redirect()->route('admin.appointmentType.index');
         }
 
-        public function show(LeaveType $leaveType)
+        public function show(AppointmentType $appointmentType)
         {
-            return view('admin.leaveType.show', ['leaveType' => $leaveType]);
+            return view('admin.appointmentTypes.show', ['appointmentType' => $appointmentType]);
         }
 }
