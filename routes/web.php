@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LeaveTypeController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AdminProfilController;
 use App\Http\Controllers\Admin\Auth\AdminPasswordController;
@@ -72,6 +73,14 @@ Route::get('/admin/user/show/{user}',  [UserController::class, 'show'])->name('a
 Route::get('/admin/user/create',  [UserController::class, 'create'])->name('admin.user.create');
 Route::post('/admin/user/store',  [UserController::class, 'store'])->name('admin.user.store');
 
+//leaveType
+Route::get('admin/leaveType/index', [LeaveTypeController::class, 'index'])->name('admin.leaveType.index');
+Route::get('/admin/leaveType/create',  [LeaveTypeController::class, 'create'])->name('admin.leaveType.create');
+Route::post('/admin/leaveType/store',  [LeaveTypeController::class, 'store'])->name('admin.leaveType.store');
+Route::get('/admin/leaveType/edit/{leaveType}',  [LeaveTypeController::class, 'edit'])->name('admin.leaveType.edit');
+Route::put('/admin/leaveType/update/{leaveType}',  [LeaveTypeController::class, 'update'])->name('admin.leaveType.update');
+Route::get('/admin/leaveType/delete/{leaveType}', [LeaveTypeController::class, 'delete'])->name('admin.leaveType.delete');
+Route::get('/admin/leaveType/show/{leaveType}',  [LeaveTypeController::class, 'show'])->name('admin.leaveType.show');
 
 
 

@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         //$user = User::all();
-        return view('admin.layouts.partials.listings', [
+        return view('admin.users.index', [
             'users' => User::paginate(15)
         ]);
     }
@@ -22,9 +22,10 @@ class UserController extends Controller
        $user->delete();
        return redirect('admin/user/index');
     }
+
      public function edit(User $user) {
         $managers = User::whereNull('manager_id')->get();
-        return view("admin.layouts.partials.edit")
+        return view("admin.users.edit")
             ->with('status', 'Modification réussie')
             ->with(compact("user", "managers"));
     }
@@ -44,30 +45,18 @@ class UserController extends Controller
 
      public function show(User $user)
     {
-        return view('admin.layouts.partials.show', ['user' => $user]);
+        return view('admin.users.show', ['user' => $user]);
     }
 
     public function create()
     {
         $managers = User::whereNull('manager_id')->get();
-        return view('admin.layouts.partials.create',compact('managers'));
+        return view('admin.users.create',compact('managers'));
     }
 
     public function store(StoreUserRequest $request)
     {
        
-        /*$user = new User;
-        $user->title = $request->input('title');
-        $user->firstName = $request->input('firstName');
-        $user->lastName = $request->input('lastName');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->phone_number = $request->input('phone_number');
-        $user->position = $request->input('position');
-        $user->manager_id = (int)$request->input('manager') ;
-        
-        $user->save() ;*/
-     
         $validated = $request->validated();
 
         $user = new User;

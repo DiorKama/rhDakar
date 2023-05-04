@@ -42,6 +42,31 @@
               </li>
             </ul>
           </li>
+            
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                 Type de Congés
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.leaveType.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste Type Congés</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.leaveType.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajout Type congés</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -51,6 +76,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="pages/charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste Congés</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

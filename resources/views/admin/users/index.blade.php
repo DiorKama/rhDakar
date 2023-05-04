@@ -37,7 +37,7 @@
                             'user' => $user->id
                         ]) }}" class="">
                             {{$user->full_name}}
-</a>
+                         </a>
                         </td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->phone_number}}</td>
