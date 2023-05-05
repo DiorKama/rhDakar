@@ -13,6 +13,10 @@ class LeaveType extends Model
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function leaves(){
         return $this->hasMany(Leave::class);
     }

@@ -116,6 +116,30 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Statut de Congés
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.leaveStatus.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Status</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.leaveStatus.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajout Status</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                Pointages

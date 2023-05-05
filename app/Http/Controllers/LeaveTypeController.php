@@ -1,21 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use App\Models\LeaveType;
 use Illuminate\Http\Request;
 
 class LeaveTypeController extends Controller
 {
-    public function index(){
-        $leaveTypes = LeaveType::all();
-        return view('admin.leaveType.index',compact('leaveTypes')); 
-
+    public function index()
+    {
+        $leaveTypes = LeaveType::paginate(5);
+    
+        return view('admin.leaveType.index', ['leaveTypes' => $leaveTypes]);
     }
 
     public function create()
     {
-        $leaveTypes = LeaveType::all();
-        return view('admin.leaveType.create',compact('leaveTypes'));
+        return view('admin.leaveType.create');
     }
     
     public function store(Request $request)
@@ -25,11 +26,11 @@ class LeaveTypeController extends Controller
             'description' => 'required',
             'active' => 'boolean',
         ]);
-    
         $leaveTypes = new LeaveType([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
-            'active' => isset($validatedData['active']) && $validatedData['active'] == '1',
+            'active' => isset($validatedData['active']) ? $validatedData['active'] : false,
+
         ]);
         
         $leaveTypes->save();
@@ -37,23 +38,29 @@ class LeaveTypeController extends Controller
         return redirect('admin/leaveType/index');
     }
     
-    public function edit($id)
+    public function edit(LeaveType $leaveType)
         {
-            $leaveTypes = LeaveType::find($id);
+            // model binding
+            //$leaveTypes = LeaveType::find($id);
 
-            return view('admin.leaveType.edit', compact('leaveTypes'));
+            return view(
+                'admin.leaveType.edit',
+                [
+                    'leaveType' => $leaveType,
+                ]
+            );
         }
 
- public function update(Request $request, $id)
+ public function update(Request $request, LeaveType $leaveType)
   {
-    $leaveTypes = LeaveType::findOrFail($id);
+    //$leaveTypes = LeaveType::findOrFail($id);
     $validatedData = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
         'active' => 'boolean',
     ]);
 
-    $leaveTypes->update([
+    $leaveType->update([
         'title' => $validatedData['title'],
         'description' => $validatedData['description'],
         'active' => isset($validatedData['active']) && $validatedData['active'] == '1',

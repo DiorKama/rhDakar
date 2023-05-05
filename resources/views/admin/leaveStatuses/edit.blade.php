@@ -1,11 +1,11 @@
 <x-master-layout>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<form  method="POST" class="bg-white" action=" {{url('admin/appointmentType/update/'.$appointmentType->id)}}" enctype="multipart/form-data">
+<form  method="POST" class="bg-white" action=" {{url('admin/leaveStatus/update/'.$leaveStatus->id)}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')          
 <div class="card card-primary mt-5 py-2"> 
   <div class="card-header">
-   <h3 class="card-title">Modification Type Pointages</h3>
+   <h3 class="card-title">Modification Type Status</h3>
 
   </div>
        <div class="card-body">
@@ -14,8 +14,8 @@
              <div class="row ">
              <div class="col-md-12">
              <div class="form-group">
-             <x-input-label for="title" :value="__('Titre Pointages')" />
-            <x-text-input id="title" name="title" type="text" class="form-control" :value="old('title', $appointmentType->title)" required autocomplete="title" />
+             <x-input-label for="title" :value="__('Titre Status')" />
+            <x-text-input id="title" name="title" type="text" class="form-control" :value="old('title', $leaveStatus->title)" required autocomplete="title" />
             <x-input-error class="mt-2" :messages="$errors->get('title')" />
              </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-md-12 mb-4">
             <div class="form-group">
             <x-input-label for="description" :value="__('Description')" />
-            <textarea id="description" name="description" type="text" class="form-control" required autofocus autocomplete="description">{{ $appointmentType->description }}</textarea>
+            <textarea id="description" name="description" type="text" class="form-control" required autofocus autocomplete="description">{{ $leaveStatus->description }}</textarea>
             <x-input-error class="mt-2" :messages="$errors->get('description')" />
             </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="form-group">
             <label for="active">{{ __('Active') }}</label><br>
                 <label>
-                    <input type="checkbox" id="active" name="active" value="1" {{ old('active', $appointmentType->active) ? 'checked' : '' }}>
+                    <input type="checkbox" id="active" name="active" value="1" {{ old('active', $leaveStatus->active) ? 'checked' : '' }}>
                     Oui
                 </label>
                 

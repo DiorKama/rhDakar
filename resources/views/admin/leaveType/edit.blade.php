@@ -1,6 +1,6 @@
 <x-master-layout>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<form  method="POST" class="bg-white" action=" {{url('admin/leaveType/update/'.$leaveTypes->id)}}" enctype="multipart/form-data">
+<form  method="POST" class="bg-white" action=" {{url('admin/leaveType/update/'.$leaveType->id)}}">
             @csrf
             @method('PUT')          
 <div class="card card-primary mt-5 py-2"> 
@@ -15,7 +15,7 @@
              <div class="col-md-12">
              <div class="form-group">
              <x-input-label for="title" :value="__('Titre Congés')" />
-            <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" :value="old('title', $leaveTypes->title)" required autocomplete="title" />
+            <x-text-input id="title" name="title" type="text" class="form-control" :value="old('title', $leaveType->title)" required autocomplete="title" />
             <x-input-error class="mt-2" :messages="$errors->get('title')" />
              </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-md-12 mb-4">
             <div class="form-group">
             <x-input-label for="description" :value="__('Description')" />
-            <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" :value="old('description', $leaveTypes->description)" required autofocus autocomplete="description" />
+            <textarea id="description" name="description" class="form-control" required autofocus autocomplete="description">{{ $leaveType->description }}</textarea>
             <x-input-error class="mt-2" :messages="$errors->get('description')" />
             </div>
             </div>
@@ -37,13 +37,10 @@
             <div class="form-group">
             <label for="active">{{ __('Active') }}</label><br>
                 <label>
-                    <input type="checkbox" id="active" name="active" value="1" {{ old('active', $leaveTypes->active) ? 'checked' : '' }}>
+                    <input type="checkbox" id="active" name="active" value="1" {{ old('active', $leaveType->active) ? 'checked' : '' }}>
                     Oui
                 </label>
-                <label>
-                    <input type="checkbox" name="active" value="0" {{ old('active', !$leaveTypes->active) ? 'checked' : '' }}>
-                    Non
-                </label>
+                
             <x-input-error class="mt-2" :messages="$errors->get('active')" />
             </div>
             </div>

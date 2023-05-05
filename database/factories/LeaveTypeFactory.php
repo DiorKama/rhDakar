@@ -21,7 +21,7 @@ class LeaveTypeFactory extends Factory
         return [
             'title' => $this->faker->word(),
             'description' => $this->faker->text(),
-            'active' => $this->faker->boolean(90), // 90% chance of being true
+            'active' => $this->faker->boolean(),
         ];
     }
 }

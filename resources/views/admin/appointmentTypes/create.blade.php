@@ -12,7 +12,7 @@
              <div class="col-md-12">
              <div class="form-group">
                 <x-input-label for="title" :value="__('Titre Pointages')" />
-                <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" required autocomplete="title" />
+                <texttarea id="title" name="title" type="text" class="form-control" required autocomplete="title">
                 <x-input-error class="mt-2" :messages="$errors->get('title')" />
                 </div>
                 </div>
@@ -21,7 +21,7 @@
              <div class="col-md-12 mb-4">
              <div class="form-group">
                 <x-input-label for="description" :value="__('Description')" />
-                <x-text-input id="description" name="description" type="text" class="mt-1 block w-full"   required autofocus autocomplete="description" />
+                <textarea id="description" name="description" type="text" class="form-control"   required autofocus autocomplete="description"></textarea>
                 <x-input-error class="mt-2" :messages="$errors->get('description')" />
              </div>
             </div>
@@ -34,10 +34,6 @@
                 <label>
                     <input type="checkbox" id="active" name="active" value="1">
                     Oui
-                </label>
-                <label>
-                    <input type="checkbox" name="active" value="0">
-                    Non
                 </label>
             <x-input-error class="mt-2" :messages="$errors->get('active')" />
             </div>

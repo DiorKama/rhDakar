@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LeaveTypeController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AdminProfilController;
+use App\Http\Controllers\LeaveStatusController;
 use App\Http\Controllers\AppointmentTypeController;
 use App\Http\Controllers\Admin\Auth\AdminPasswordController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
@@ -93,3 +94,12 @@ Route::put('/admin/appointmentType/update/{appointmentType}',  [AppointmentTypeC
 Route::get('/admin/appointmentType/delete/{appointmentType}', [AppointmentTypeController::class, 'delete'])->name('admin.appointmentType.delete');
 Route::get('/admin/appointmentType/show/{appointmentType}',  [AppointmentTypeController::class, 'show'])->name('admin.appointmentType.show');
 
+
+//leaveStatus
+Route::get('admin/leaveStatus/index', [LeaveStatusController::class, 'index'])->name('admin.leaveStatus.index');
+Route::get('/admin/leaveStatus/create',  [LeaveStatusController::class, 'create'])->name('admin.leaveStatus.create');
+Route::post('/admin/leaveStatus/store',  [LeaveStatusController::class, 'store'])->name('admin.leaveStatus.store');
+Route::get('/admin/leaveStatus/edit/{leaveStatus}',  [LeaveStatusController::class, 'edit'])->name('admin.leaveStatus.edit');
+Route::put('/admin/leaveStatus/update/{leaveStatus}',  [LeaveStatusController::class, 'update'])->name('admin.leaveStatus.update');
+Route::get('/admin/leaveStatus/delete/{leaveStatus}', [LeaveStatusController::class, 'delete'])->name('admin.leaveStatus.delete');
+Route::get('/admin/leaveStatus/show/{leaveStatus}',  [LeaveStatusController::class, 'show'])->name('admin.leaveStatus.show');

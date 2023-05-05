@@ -1,17 +1,17 @@
 <x-master-layout>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<form  method="POST" class="bg-white" action="{{route('admin.leaveType.store')}}" autocomplete="on">
+<form  method="POST" class="bg-white" action="{{route('admin.leaveStatus.store')}}" autocomplete="on">
             @csrf         
   <div class="card card-primary mt-5 py-2">
   <div class="card-header">
-   <h3 class="card-title">Ajout Type Congés</h3>
+   <h3 class="card-title">Ajout Type Status</h3>
   </div>
 
        <div class="card-body">
-            <div class="row">
+       <div class="row">
              <div class="col-md-12">
              <div class="form-group">
-                <x-input-label for="title" :value="__('Titre Congés')" />
+                <x-input-label for="title" :value="__('Titre Status')" />
                 <x-text-input id="title" name="title" type="text" class="form-control" required autocomplete="title" />
                 <x-input-error class="mt-2" :messages="$errors->get('title')" />
                 </div>
@@ -35,7 +35,6 @@
                     <input type="checkbox" id="active" name="active" value="1">
                     Oui
                 </label>
-                
             <x-input-error class="mt-2" :messages="$errors->get('active')" />
             </div>
             </div>

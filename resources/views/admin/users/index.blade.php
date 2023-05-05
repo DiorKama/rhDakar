@@ -25,6 +25,7 @@
                     <th>{{ __('register.phone') }}</th>
                     <th>{{ __('register.position') }}</th>
                     <th>Manager</th>
+                    <th>{{ __('Créé le') }}</th>
                     <th>Actions</th>
 					</tr>
 				</thead>
@@ -47,6 +48,7 @@
                                 {{ $user->manager->full_name }}
                             @endif
                         </td>
+                        <td>{{ $user->created_at->locale('fr_FR')->isoFormat('DD MMM YYYY à HH:mm:ss', 'Do MMM YYYY à HH:mm:ss') }}</td>
 						<td class="text-nowrap">
                         <button type="button" class="btn btn-primary"><a href="{{ route('admin.user.edit', [
                             'user' => $user->id

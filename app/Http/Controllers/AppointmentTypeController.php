@@ -1,22 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AppointmentType;
 
 class AppointmentTypeController extends Controller
 {
     public function index(){
-        $appointmentTypes = AppointmentType::all();
-        return view('admin.appointmentTypes.index',compact('appointmentTypes')); 
+        return view(
+            'admin.appointmentTypes.index',
+            [
+                'appointmentTypes' => AppointmentType::paginate(5),
+            ]
+        ); 
 
     }
 
     public function create()
     {
-        $appointmentTypes = AppointmentType::all();
-        return view('admin.appointmentTypes.create',compact('appointmentTypes'));
+        
+        return view('admin.appointmentTypes.create');
     }
     
     public function store(Request $request)
@@ -26,11 +30,10 @@ class AppointmentTypeController extends Controller
             'description' => 'required',
             'active' => 'boolean',
         ]);
-    
         $appointmentTypes = new AppointmentType([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
-            'active' => isset($validatedData['active']) && $validatedData['active'] == '1',
+            'active' => isset($validatedData['active']) ? $validatedData['active'] : false,
         ]);
         
         $appointmentTypes->save();
@@ -38,23 +41,28 @@ class AppointmentTypeController extends Controller
         return redirect('admin/appointmentType/index');
     }
     
-    public function edit($id)
+    public function edit(AppointmentType $appointmentType)
         {
-            $appointmentTypes = AppointmentType::find($id);
+            // $appointmentTypes = AppointmentType::find($id);
 
-            return view('admin.appointmentTypes.edit', compact('appointmentTypes'));
+            return view(
+                'admin.appointmentTypes.edit',
+                [
+                    'appointmentType' => $appointmentType,
+                ]
+            );
         }
 
- public function update(Request $request, $id)
+ public function update(Request $request, AppointmentType $appointmentType)
   {
-    $appointmentTypes = AppointmentType::findOrFail($id);
+    // $appointmentTypes = AppointmentType::findOrFail($id);
     $validatedData = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
         'active' => 'boolean',
     ]);
 
-    $appointmentTypes->update([
+    $appointmentType->update([
         'title' => $validatedData['title'],
         'description' => $validatedData['description'],
         'active' => isset($validatedData['active']) && $validatedData['active'] == '1',

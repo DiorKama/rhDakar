@@ -22,10 +22,7 @@ return new class extends Migration
             $table->foreign('approval_user_id')->references('id')->on('users')->nullable();
             $table->foreignId('leave_statuse_id')->constrained();
             $table->string('comment');
-            $table->timestamps();
-
-            
-            
+            $table->timestamps();     
         });
     }
 

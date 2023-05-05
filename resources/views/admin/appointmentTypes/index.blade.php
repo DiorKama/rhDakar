@@ -20,7 +20,9 @@
                       <th>{{ __('Description') }}</th>
 
                       <th>{{ __('Active') }}</th>
-                    <th>Actions</th>
+					  <th>{{ __('Créé le') }}</th>
+					  <th>{{ __('Updated') }}</th>
+					  <th>{{ __('Actions') }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,6 +34,8 @@
                         <td>{{$appointmentType->title}}</td>
                         <td>{{$appointmentType->description}}</td>
                         <td>{{ $appointmentType->active ? 'oui' : 'non' }}</td>
+						<td>{{ $appointmentType->created_at->locale('fr_FR')->isoFormat('DD MMM YYYY à HH:mm:ss', 'Do MMM YYYY à HH:mm:ss') }}</td>
+                        <td>{{ $appointmentType->updated_at->locale('fr_FR')->isoFormat('DD MMM YYYY à HH:mm:ss', 'Do MMM YYYY à HH:mm:ss') }}</td>
 						<td class="text-nowrap">
                         <button type="button" class="btn btn-primary"><a href="{{ route('admin.appointmentType.edit', ['appointmentType' => $appointmentType->id]) }}" class="text-white" style="text-decoration: none;"><i class="fa fa-pencil" aria-hidden="true"></i></a></button>
                         <button type="button" class="btn btn-danger" onclick="if(confirm('Êtes-vous sûr de vouloir supprimer ce type de pointage?')) { window.location.href = '{{url('admin/appointmentType/delete/'.$appointmentType->id)}}' }">
@@ -42,6 +46,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			{{ $appointmentTypes->links() }}
      </div>
 </div>
 </div>

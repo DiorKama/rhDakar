@@ -10,11 +10,13 @@
                         <img src="/images/expat.png" alt="" class="img-fluid" width="150" height="150">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="card-title">{{ $leaveType->title }}</h5>
-                            <p class="card-text">{{ $leaveType->description }}</p>
-                            <p class="card-text, text-primary">{{ $leaveType->active ? 'Activé' : 'Désactivé' }}</p>
+                            <h5 class="card-title"><strong>Titre:  </strong>{{ $leaveType->title }}</h5>
+                            <p class="card-text"><strong>Description:  </strong>{{ $leaveType->description }}</p>
+                            <p class="card-text text-primary"><strong class="text-dark">Statut:  </strong>{{ $leaveType->active ? 'Activé' : 'Désactivé' }}</p>
+                            <p class="card-text"><td><strong>Crée le:  </strong>{{ $leaveType->created_at->locale('fr_FR')->isoFormat('LLLL') }}</td></p>
+                            <p class="card-text"><td><strong>Mise à jour:  </strong>{{ $leaveType->updated_at->locale('fr_FR')->isoFormat('LLLL') }}</td></p>
                             <a href="" class="btn btn-primary">Editer</a>
-                        </div>
+                        </div>>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -11,7 +12,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        //$user = User::all();
+        // users = User::all();
+       
+
         return view('admin.users.index', [
             'users' => User::paginate(15)
         ]);
